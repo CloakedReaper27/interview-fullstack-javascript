@@ -40,3 +40,75 @@
 .read-the-docs {
   color: #888;
 }
+
+
+.table-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  overflow-x: auto;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 600px;
+  table-layout: fixed;
+}
+
+th, td {
+  border: 1px solid #ffffff;
+  padding: 8px;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+td button {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+th {
+  font-weight: bold;
+  width: 50%;
+}
+
+td:last-child, th:last-child {
+  width: 50%;
+}
+
+.city-number-page {
+  width: '40px';
+  text-align: 'center';
+}
+
+.searchbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+}
+
+.modal {
+  position: fixed;
+  top: 25%;
+  left: 30%;
+  padding: 20px;
+  background: rgb(20, 20, 20);
+  border: 1px solid #ccc;
+  z-index: 100;
+}
+
+.input-button{
+  margin-top: 60px;
+}
+
+.input-city {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+}
