@@ -3,3 +3,5 @@ CREATE TABLE IF NOT EXISTS city (
   cityName VARCHAR(60) UNIQUE NOT NULL,
   count INT NOT NULL
 );
+
+-- Datadase name is: cities_app
