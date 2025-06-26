@@ -20,8 +20,8 @@ function App() {
   const fetchCities = async (query?: string) => {
     try {
       const url = query
-        ? `http://localhost:8000/api/cities?search=${encodeURIComponent(query)}`
-        : 'http://localhost:8000/api/cities';
+        ? `/api/cities?search=${encodeURIComponent(query)}`
+        : '/api/cities';
 
       const res = await fetch(url);
       if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
@@ -88,8 +88,8 @@ function App() {
 
     const method = Cityuuid ? 'PUT' : 'POST';
     const url = Cityuuid
-      ? `http://localhost:8000/api/cities/${Cityuuid.uuid}`
-      : `http://localhost:8000/api/cities`;
+      ? `/api/cities/${Cityuuid.uuid}`
+      : `/api/cities`;
 
     await fetch(url, {
       method,
@@ -102,7 +102,7 @@ function App() {
   }
 
   const handleDelete = async (uuid: string) => {
-    await fetch(`http://localhost:8000/api/cities/${uuid}`, { method: 'DELETE' });
+    await fetch(`/api/cities/${uuid}`, { method: 'DELETE' });
     setShowDeleteModal(false);
     fetchCities(search);
   }
@@ -133,32 +133,34 @@ function App() {
       </button>
 
       {showModal && (
-        <div className="modal">
-          <h2>{Cityuuid ? "Edit City" : "Add City"}</h2>
+        <div className="popup-container">
+          <div className="popup">
+            <h2>{Cityuuid ? "Edit City" : "Add City"}</h2>
 
-          <div className='input-city'>
-            <input
-              type="text"
-              value={formCityName}
-              onChange={(e) => setFormCityName(e.target.value)}
-              placeholder="City Name"
-              required
-            />
-            <input
-              type="number"
-              value={formCount}
-              onChange={(e) => setFormCount(Number(e.target.value))}
-              placeholder="Count"
-              required
-            />
-          </div>
-            {error && <p style={{color: 'red'}}>{error}</p>}
+            <div className='input-city'>
+              <input
+                type="text"
+                value={formCityName}
+                onChange={(e) => setFormCityName(e.target.value)}
+                placeholder="City Name"
+                required
+              />
+              <input
+                type="number"
+                value={formCount}
+                onChange={(e) => setFormCount(Number(e.target.value))}
+                placeholder="Count"
+                required
+              />
+            </div>
+              {error && <p style={{color: 'red'}}>{error}</p>}
 
-          <div className='input-button'>
-            <button onClick={handleSubmit}>
-              {Cityuuid ? "Update" : "Create"}
-            </button>
-            <button onClick={() => {setShowModal(false), setError('')} }>Cancel</button>
+            <div className='input-button'>
+              <button onClick={handleSubmit}>
+                {Cityuuid ? "Update" : "Create"}
+              </button>
+              <button onClick={() => {setShowModal(false), setError('')} }>Cancel</button>
+            </div>
           </div>
         </div>
       )}
