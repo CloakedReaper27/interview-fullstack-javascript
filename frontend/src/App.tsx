@@ -133,8 +133,8 @@ function App() {
       </button>
 
       {showModal && (
-        <div className="popup-container">
-          <div className="popup">
+        <div className="modal-container">
+          <div className="modal">
             <h2>{Cityuuid ? "Edit City" : "Add City"}</h2>
 
             <div className='input-city'>

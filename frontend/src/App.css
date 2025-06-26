@@ -92,7 +92,7 @@ td:last-child, th:last-child {
   justify-content: center;
 }
 
-.popup {
+.modal {
   background: #1a1a1a;
   padding: 2rem;
   border: 1px solid #444;
@@ -101,7 +101,7 @@ td:last-child, th:last-child {
   min-width: 300px;
 }
 
-.popup-container {
+.modal-container {
   position: fixed;
   top: 0;
   left: 0;
